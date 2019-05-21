@@ -1,0 +1,703 @@
+<div class="admin-elements-page">
+  <!-- Start: Content-Wrapper-->
+  <section id="content_wrapper">
+      <!-- Start: Topbar-Dropdown-->
+      <div id="topbar-dropmenu" class="alt">
+        <div class="topbar-menu row">
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-primary light"><span class="glyphicon glyphicon-inbox text-muted"></span><span class="metro-title">Messages</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-info light"><span class="glyphicon glyphicon-user text-muted"></span><span class="metro-title">Users</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-success light"><span class="glyphicon glyphicon-headphones text-muted"></span><span class="metro-title">Support</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-system light"><span class="glyphicon glyphicon-facetime-video text-muted"></span><span class="metro-title">Videos</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-warning light"><span class="fa fa-gears text-muted"></span><span class="metro-title">Settings</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-alert light"><span class="glyphicon glyphicon-picture text-muted"></span><span class="metro-title">Pictures</span></a></div>
+        </div>
+      </div>
+      <!-- Start: Topbar-->
+      <header id="topbar" class="alt">
+        <div class="topbar-left">
+          <ol class="breadcrumb">
+            
+            <li class="crumb-icon"><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="crumb-link"><a href="index.html">Administración</a></li>
+            <li class="crumb-trail">Inicio</li>
+          </ol>
+        </div>
+        
+      </header>
+      <!-- Begin: Content-->
+      <section id="content" class="table-layout animated fadeIn">
+        <!-- begin: .tray-center-->
+        <div class="tray tray-center">
+          <div class="mw1000 center-block">
+            <!-- Begin: Content Header-->
+            <div class="content-header">
+              <h2> <b>Administración página de inicio</b> 
+              </h2>
+              <!-- <p class="lead">Llena el formulario para agregar el producto</p> -->
+            </div>
+            
+  
+  
+            <!-- Begin: Admin Form-->
+            <div class="admin-form">
+              <div  class="panel heading-border">
+                
+                <!-- Panel formulario-->
+                <div [hidden]="submitted" class="panel-body bg-light">
+                  <form (ngSubmit)="newHero()" (keydown.enter)="$event.preventDefault()" #heroForm="ngForm">
+                    
+                    <!-- .section-divider-->
+                   
+                   
+                  
+                    <!-- Multi Selects-->
+                    
+                 
+                    <div id="spy3" class="section-divider mv40"><span>Banner principal</span></div>
+                    
+                    <!-- .section-divider-->
+                    <!-- File Uploaders-->
+  
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                          <div class="section">
+                              <img [src]="imageUrlSlider1" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="slider1" type="file"  name="slider1" (change)="getFileSlider($event) " onchange="document.getElementById('upSlider1').value = this.value;" class="gui-file">
+                              <input id="upSlider1"  type="text" placeholder="Imagen principal" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorSlider1" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgSlider1}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgSlider1" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgSlider1 + '%'}"  [ngClass]="claseCargaImgSlider1">{{porcentajeCargaImgSlider1}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- slider2 -->
+                        <div class="col-md-4">
+                          <div class="section">
+
+                            <img [src]="imageUrlSlider2" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="slider2" type="file"  name="slider2" (change)="getFileSlider($event) " onchange="document.getElementById('upSlider2').value = this.value;" class="gui-file">
+                              <input id="upSlider2"  type="text" placeholder="Imagen principal" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorSlider1" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgSlider1}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgSlider2" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgSlider2 + '%'}"  [ngClass]="claseCargaImgSlider2">{{porcentajeCargaImgSlider2}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- slider 3 -->
+
+                        <div class="col-md-4">
+                          <div class="section">
+                              <img [src]="imageUrlSlider3" class="img-responsive ">
+
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="slider3" type="file"  name="slider3" (change)="getFileSlider($event) " onchange="document.getElementById('upSlider3').value = this.value;" class="gui-file">
+                              <input id="upSlider3"  type="text" placeholder="Slider 3" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorSlider3" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgSlider3}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgSlider3" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgSlider3 + '%'}"  [ngClass]="claseCargaImgSlider3">{{porcentajeCargaImgSlider3}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        
+                      </div>
+    
+                     <!-- *****Baner intermedio                      -->
+                    <div id="spy3" class="section-divider mv40"><span>Banner intermedio</span></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <div class="section">
+                              <img [src]="imageUrlBannerInt1" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="BannerInt1" type="file"  name="BannerInt1" (change)="getFileBannerInt($event) " onchange="document.getElementById('upBannerInt1').value = this.value;" class="gui-file">
+                              <input id="upBannerInt1"  type="text" placeholder="Imagen principal" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorBannerInt1" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgBannerInt1}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgBannerInt1" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgBannerInt1 + '%'}"  [ngClass]="claseCargaImgBannerInt1">{{porcentajeCargaImgBannerInt1}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- BannerInt2 -->
+                        <div class="col-md-4">
+                          <div class="section">
+
+                            <img [src]="imageUrlBannerInt2" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="BannerInt2" type="file"  name="BannerInt2" (change)="getFileBannerInt($event) " onchange="document.getElementById('upBannerInt2').value = this.value;" class="gui-file">
+                              <input id="upBannerInt2"  type="text" placeholder="Imagen principal" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorBannerInt1" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgBannerInt1}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgBannerInt2" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgBannerInt2 + '%'}"  [ngClass]="claseCargaImgBannerInt2">{{porcentajeCargaImgBannerInt2}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- BannerInt 3 -->
+
+                        <div class="col-md-4">
+                          <div class="section">
+                              <img [src]="imageUrlBannerInt3" class="img-responsive ">
+
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="BannerInt3" type="file"  name="BannerInt3" (change)="getFileBannerInt($event) " onchange="document.getElementById('upBannerInt3').value = this.value;" class="gui-file">
+                              <input id="upBannerInt3"  type="text" placeholder="BannerInt 3" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorBannerInt3" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgBannerInt3}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgBannerInt3" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgBannerInt3 + '%'}"  [ngClass]="claseCargaImgBannerInt3">{{porcentajeCargaImgBannerInt3}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        
+                      </div>
+
+                      
+                   <!-- *****Clasificaciones                      -->
+                    <div id="spy3" class="section-divider mv40"><span>Clasificaciones</span></div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                          <!-- nombre 1-->
+                            <div class="section">
+                              <label for="power">Clasificación 1: {{nombreClasificacion1}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion1" required  name="clasificacion1" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 1 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion1" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion1" type="file"  name="clasificacion1" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion1').value = this.value;" class="gui-file">
+                              <input id="upClasificacion1"  type="text" placeholder="Imagen clasificación 1" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion1" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion1}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion1" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion1 + '%'}"  [ngClass]="claseCargaImgClasificacion1">{{porcentajeCargaImgClasificacion1}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- clasificacion 2 -->
+                        <div class="col-md-4">
+                          <!-- nombre 1-->
+                            <div class="section">
+                              <label for="power">Clasificación 2: {{nombreClasificacion2}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion2" required  name="clasificacion2" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 2 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion2" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion2" type="file"  name="clasificacion2" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion2').value = this.value;" class="gui-file">
+                              <input id="upClasificacion2"  type="text" placeholder="Imagen clasificación 2" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion2" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion2}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion2" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion2 + '%'}"  [ngClass]="claseCargaImgClasificacion2">{{porcentajeCargaImgClasificacion2}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- clasificacion 3 -->
+
+                        <div class="col-md-4">
+                          <!-- nombre 1-->
+                            <div class="section">
+                              <label for="power">Clasificación 3: {{nombreClasificacion3}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion3" required  name="clasificacion3" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 3 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion3" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion3" type="file"  name="clasificacion3" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion3').value = this.value;" class="gui-file">
+                              <input id="upClasificacion3"  type="text" placeholder="Imagen clasificación 3" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion3" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion3}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion3" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion3 + '%'}"  [ngClass]="claseCargaImgClasificacion3">{{porcentajeCargaImgClasificacion3}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        
+
+                        
+                      </div>
+
+                    <!-- clasificacion 6 -->
+                      <div class="row">
+                        <div class="col-md-4">
+                          <!-- nombre 4-->
+                            <div class="section">
+                              <label for="power">Clasificación 4: {{nombreClasificacion4}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion4" required  name="clasificacion4" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 4 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion4" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion4" type="file"  name="clasificacion4" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion4').value = this.value;" class="gui-file">
+                              <input id="upClasificacion4"  type="text" placeholder="Imagen clasificación 4" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion4" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion4}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion4" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion4 + '%'}"  [ngClass]="claseCargaImgClasificacion4">{{porcentajeCargaImgClasificacion4}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- clasificacion 5 -->
+                        <div class="col-md-4">
+                          <!-- nombre 5-->
+                            <div class="section">
+                              <label for="power">Clasificación 5: {{nombreClasificacion5}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion5" required  name="clasificacion5" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 5 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion5" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion5" type="file"  name="clasificacion5" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion5').value = this.value;" class="gui-file">
+                              <input id="upClasificacion5"  type="text" placeholder="Imagen clasificación 5" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion5" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion5}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion5" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion5 + '%'}"  [ngClass]="claseCargaImgClasificacion5">{{porcentajeCargaImgClasificacion5}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        <!-- clasificacion 6 -->
+
+                        <div class="col-md-4">
+                          <!-- nombre 6-->
+                            <div class="section">
+                              <label for="power">Clasificación 6: {{nombreClasificacion6}} </label>
+                                  <select class="form-control" (change)="seleccionClasificacion($event)" id="clasificacion6" required  name="clasificacion6" >
+                                    <option>Seleccionar...</option>
+                                    <option *ngFor="let clasificacion of itemsClasificaciones | async " [value]="clasificacion.key">{{clasificacion.nombre}}</option>
+                                  </select><i class="arrow"></i>
+                                  <label for="tooltip" class="field-icon"></label>
+                                
+                                
+                              </div>
+                              <!-- imagen 6 -->
+                          <div class="section">
+                            
+                              <img [src]="imageUrlClasificacion6" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="clasificacion6" type="file"  name="clasificacion6" (change)="getFileClasificacion($event) " onchange="document.getElementById('upClasificacion6').value = this.value;" class="gui-file">
+                              <input id="upClasificacion6"  type="text" placeholder="Imagen clasificación 6" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+  
+  
+  
+  
+                            <div [hidden]="!imgErrorClasificacion6" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImgClasificacion6}}.
+                            </div>
+  
+  
+  
+                            <div [hidden]="!estadoCargaImgClasificacion6" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImgClasificacion6 + '%'}"  [ngClass]="claseCargaImgClasificacion6">{{porcentajeCargaImgClasificacion6}}%</div>
+                            </div>
+  
+                          </div>
+                        </div>
+                        
+
+                        
+                      </div>
+                      
+                   
+                      <!-- Productos -->
+                      <div id="spy3" class="section-divider mv40"><span>Productos</span></div>
+
+                      <div class="row">
+                          <div class="col-md-4 ">
+                              <label for="power">Producto 1: {{productoSeleccionado.get(1)}} </label>
+                              <div class="section">
+                                  <label class="field select">
+                                      <select class="form-control" (change)="selectChange($event)" id="producto1" required  name="clasificacion1" >
+                                          <option>Seleccionar...</option>
+                                          <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                        </select><i class="arrow"></i>
+                                  </label>
+                                </div>
+                          </div>
+                          <!-- producto2 -->
+                          <div class="col-md-4 ">
+                              <label for="power">Producto 2: {{productoSeleccionado.get(2)}} </label>
+                              <div class="section">
+                                  <label class="field select">
+                                      <select class="form-control" (change)="selectChange($event)" id="producto2" required  name="clasificacion1" >
+                                          <option>Seleccionar...</option>
+                                          <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                        </select><i class="arrow"></i>
+                                  </label>
+                                </div>
+                          </div>
+                          <!-- producto 3 -->
+                          <div class="col-md-4 ">
+                              <label for="power">Producto 3: {{productoSeleccionado.get(3)}} </label>
+                              <div class="section">
+                                  <label class="field select">
+                                      <select class="form-control" (change)="selectChange($event)" id="producto3" required  name="clasificacion1" >
+                                          <option>Seleccionar...</option>
+                                          <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                        </select><i class="arrow"></i>
+                                  </label>
+                                </div>
+                          </div>
+
+                          
+                        </div>
+
+                        <div class="row">
+                          <!-- producto 4 -->
+                            <div class="col-md-4 ">
+                                <label for="power">Producto 4: {{productoSeleccionado.get(4)}} </label>
+                                <div class="section">
+                                    <label class="field select">
+                                        <select class="form-control" (change)="selectChange($event)" id="producto4" required  name="clasificacion1" >
+                                            <option>Seleccionar...</option>
+                                            <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                          </select><i class="arrow"></i>
+                                    </label>
+                                  </div>
+                            </div>
+                            <!-- producto 5 -->
+                            <div class="col-md-4 ">
+                                <label for="power">Producto 5: {{productoSeleccionado.get(5)}} </label>
+                                <div class="section">
+                                    <label class="field select">
+                                        <select class="form-control" (change)="selectChange($event)" id="producto5" required  name="clasificacion1" >
+                                            <option>Seleccionar...</option>
+                                            <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                          </select><i class="arrow"></i>
+                                    </label>
+                                  </div>
+                            </div>
+                            <!-- producto 6 -->
+                            <div class="col-md-4 ">
+                                <label for="power">Producto 6: {{productoSeleccionado.get(6)}} </label>
+                                <div class="section">
+                                    <label class="field select">
+                                        <select class="form-control" (change)="selectChange($event)" id="producto6" required  name="clasificacion1" >
+                                            <option>Seleccionar...</option>
+                                            <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                          </select><i class="arrow"></i>
+                                    </label>
+                                  </div>
+                            </div>
+  
+                            
+                          </div>
+
+
+                        <div class="row">
+                            <!-- producto 7 -->
+                              <div class="col-md-4 ">
+                                  <label for="power">Producto 7: {{productoSeleccionado.get(7)}} </label>
+                                  <div class="section">
+                                      <label class="field select">
+                                          <select class="form-control" (change)="selectChange($event)" id="producto7" required  name="clasificacion1" >
+                                              <option>Seleccionar...</option>
+                                              <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                            </select><i class="arrow"></i>
+                                      </label>
+                                    </div>
+                              </div>
+                              <!-- producto 8 -->
+                              <div class="col-md-4 ">
+                                  <label for="power">Producto 8: {{productoSeleccionado.get(8)}} </label>
+                                  <div class="section">
+                                      <label class="field select">
+                                          <select class="form-control" (change)="selectChange($event)" id="producto8" required  name="clasificacion1" >
+                                              <option>Seleccionar...</option>
+                                              <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                            </select><i class="arrow"></i>
+                                      </label>
+                                    </div>
+                              </div>
+                              <!-- producto 9 -->
+                              <div class="col-md-4 ">
+                                  <label for="power">Producto 9: {{productoSeleccionado.get(9)}} </label>
+                                  <div class="section">
+                                      <label class="field select">
+                                          <select class="form-control" (change)="selectChange($event)" id="producto9" required  name="clasificacion1" >
+                                              <option>Seleccionar...</option>
+                                              <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                            </select><i class="arrow"></i>
+                                      </label>
+                                    </div>
+                              </div>
+    
+                              
+                            </div>
+
+                            <div class="row">
+                                <!-- producto 10 -->
+                                  <div class="col-md-4 ">
+                                      <label for="power">Producto 10: {{productoSeleccionado.get(10)}} </label>
+                                      <div class="section">
+                                          <label class="field select">
+                                              <select class="form-control" (change)="selectChange($event)" id="productos10" required  name="clasificacion1" >
+                                                  <option>Seleccionar...</option>
+                                                  <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                </select><i class="arrow"></i>
+                                          </label>
+                                        </div>
+                                  </div>
+                                  <!-- producto 11 -->
+                                  <div class="col-md-4 ">
+                                      <label for="power">Producto 11: {{productoSeleccionado.get(11)}} </label>
+                                      <div class="section">
+                                          <label class="field select">
+                                              <select class="form-control" (change)="selectChange($event)" id="productos11" required  name="clasificacion1" >
+                                                  <option>Seleccionar...</option>
+                                                  <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                </select><i class="arrow"></i>
+                                          </label>
+                                        </div>
+                                  </div>
+                                  <!-- producto 12 -->
+                                  <div class="col-md-4 ">
+                                      <label for="power">Producto 12: {{productoSeleccionado.get(12)}} </label>
+                                      <div class="section">
+                                          <label class="field select">
+                                              <select class="form-control" (change)="selectChange($event)" id="productos12" required  name="clasificacion1" >
+                                                  <option>Seleccionar...</option>
+                                                  <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                </select><i class="arrow"></i>
+                                          </label>
+                                        </div>
+                                  </div>
+                                  
+                                 
+                                </div>
+                                <div class="row">
+                                    <!-- producto 13 -->
+                                      <div class="col-md-4 ">
+                                          <label for="power">Producto 13: {{productoSeleccionado.get(13)}} </label>
+                                          <div class="section">
+                                              <label class="field select">
+                                                  <select class="form-control" (change)="selectChange($event)" id="productos13" required  name="clasificacion1" >
+                                                      <option>Seleccionar...</option>
+                                                      <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                    </select><i class="arrow"></i>
+                                              </label>
+                                            </div>
+                                      </div>
+                                      <!-- producto 14 -->
+                                      <div class="col-md-4 ">
+                                          <label for="power">Producto 14: {{productoSeleccionado.get(14)}} </label>
+                                          <div class="section">
+                                              <label class="field select">
+                                                  <select class="form-control" (change)="selectChange($event)" id="productos14" required  name="clasificacion1" >
+                                                      <option>Seleccionar...</option>
+                                                      <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                    </select><i class="arrow"></i>
+                                              </label>
+                                            </div>
+                                      </div>
+                                      <!-- producto 15 -->
+                                      <div class="col-md-4 ">
+                                          <label for="power">Producto 15: {{productoSeleccionado.get(15)}} </label>
+                                          <div class="section">
+                                              <label class="field select">
+                                                  <select class="form-control" (change)="selectChange($event)" id="productos15" required  name="clasificacion1" >
+                                                      <option>Seleccionar...</option>
+                                                      <option *ngFor="let producto of itemsProductos | async " [value]="producto.key">{{producto.nombre}}</option>
+                                                    </select><i class="arrow"></i>
+                                              </label>
+                                            </div>
+                                      </div>
+            
+                                      
+                                    </div>
+                      <!-- fin productos   -->
+                  
+                
+                    
+  
+                    
+                  
+                    
+                    
+                    
+                    
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- begin: .tray-right-->
+        
+      </section>
+    </section>
+    </div>
+    
+  

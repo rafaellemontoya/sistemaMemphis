@@ -1,0 +1,452 @@
+<div class="admin-elements-page">
+    <!-- Start: Content-Wrapper-->
+    <section id="content_wrapper">
+        <!-- Start: Topbar-Dropdown-->
+        
+        <!-- Start: Topbar-->
+        <header id="topbar" class="alt">
+          <div class="topbar-left">
+            <ol class="breadcrumb">
+              
+              <li class="crumb-icon"><a routerLink="inicio"><span class="glyphicon glyphicon-home"></span></a></li>
+              <li class="crumb-link"><a routerLink="productos">Producto</a></li>
+              <li class="crumb-trail">Editar producto</li>
+            </ol>
+          </div>
+          
+        </header>
+        <!-- Begin: Content-->
+        <section id="content" class="table-layout animated fadeIn">
+          <!-- begin: .tray-center-->
+          <div class="tray tray-center">
+            <div class="mw1000 center-block">
+              <!-- Begin: Content Header-->
+              <div class="content-header">
+                <h2> <b>Editar producto</b> 
+                </h2>
+                <p class="lead">Llena el formulario y da click en "Guardar" para editar el producto</p>
+              </div>
+              
+    
+    
+              <!-- Begin: Admin Form-->
+              <div class="admin-form">
+                <div  class="panel heading-border">
+                  <!-- Panel guardado-->
+                  <div [hidden]="!submitted" class="panel-body bg-light animated fadeIn">
+                      
+    
+                  <div class="alert alert-success alert-dismissable mb30">
+                      <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                      <h3 class="mt5">Producto guardado exitosamente!</h3>
+                      <p>Producto editado con éxito.</p><br>
+                      <div class="element-groups-sm-custom"><a routerLink="/productos" class="btn btn-white">Continuar</a><button type="button" (click)="submitted=false; heroForm.reset()" class="btn btn-default">nuevo producto</button></div>
+                    </div>
+      
+      
+                  </div>
+                  <!-- Panel formulario-->
+                  <div [hidden]="submitted" class="panel-body bg-light">
+                    <form (ngSubmit)="newHero()" (keydown.enter)="$event.preventDefault()" #heroForm="ngForm">
+                      <div id="spy1" class="section-divider mb40"><span>Información general</span></div>
+                      <!-- .section-divider-->
+                      <!-- Basic Inputs-->
+                      <div class="row">
+                        <div class="col-md-10">
+                          <div class="section">
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"  id="nombre" required [(ngModel)]="producto.nombre" name="nombre" #nombre="ngModel" placeholder="Nombre" class="gui-input">
+                              <b class="tooltip tip-right-top">
+                                <em> Nombre del producto.</em>
+                              </b>
+                              <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                            </label>
+                            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                               Se necesita un nombre de producto
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-2">
+                          <div class="section">
+                              <label class="field prepend-icon">
+                                <input type="number" min="1"  id="precio" required [(ngModel)]="producto.precioPublico" name="precio" #precio="ngModel" placeholder="Precio" class="gui-input">
+                                <b class="tooltip tip-right-top">
+                                  <em> Precio al público.</em>
+                                </b>
+                                <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                              </label>
+                              <div [hidden]="precio.valid || precio.pristine" class="alert alert-danger">
+                                 Se necesita un precio de producto
+                              </div>
+                          </div>
+                      </div>
+                        
+                      </div>
+                      <!-- Input Icons-->
+                      <div class="row">
+                        
+                        <div class="col-md-3">
+                            <div class="section">
+                                <label class="field prepend-icon">
+                                  <input type="number" min="1"  id="costo" required [(ngModel)]="producto.costo" name="costo" #costo="ngModel" placeholder="Costo" class="gui-input">
+                                  <b class="tooltip tip-right-top">
+                                    <em> Costo interno.</em>
+                                  </b>
+                                  <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                                </label>
+                                <div [hidden]="costo.valid || costo.pristine" class="alert alert-danger">
+                                   Se necesita un costo de producto
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="section">
+                                <label class="field prepend-icon">
+                                  <input type="number"  id="descuento" min="0" max="100" [(ngModel)]="producto.descuentoPromocion" name="descuento" #descuento="ngModel" placeholder="% de Descuento" class="gui-input">
+                                  <b class="tooltip tip-right-top">
+                                    <em> Porcentaje de descuento del producto. De 0% a 100%</em>
+                                  </b>
+                                  <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                                </label>
+                                <div [hidden]="descuento.valid || descuento.pristine" class="alert alert-danger">
+                                   Se necesita un descripcion de producto
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="section">
+                                <label class="field prepend-icon">
+                                  <input type="number" required id="unidades" min="0"  [(ngModel)]="producto.unidades" name="unidades" #unidades="ngModel" placeholder="Unidades" class="gui-input">
+                                  <b class="tooltip tip-right-top">
+                                    <em> Unidades actuales del producto.</em>
+                                  </b>
+                                  <label for="unidades" class="field-icon"><i class="fa fa-flag"></i></label>
+                                </label>
+                                <div [hidden]="unidades.valid || unidades.pristine" class="alert alert-danger">
+                                   Se necesita un número de unidades
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="section">
+                              <label class="field prepend-icon">
+                                <input type="text" id="marca"   [(ngModel)]="producto.marca" name="marca" #marca="ngModel" placeholder="Marca" class="gui-input">
+                                <b class="tooltip tip-right-top">
+                                  <em> Marca del producto.</em>
+                                </b>
+                                <label for="marca" class="field-icon"><i class="fa fa-flag"></i></label>
+                              </label>
+                              <div [hidden]="marca.valid || marca.pristine" class="alert alert-danger">
+                                 Se  un número de codigo Barras
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                      <!-- Input Formats-->
+                      <div class="row">
+                        <div class="col-md-4">
+                            <div class="section">
+                                <label class="field prepend-icon">
+                                  <input type="number" id="codigoBarras" min="0"  [(ngModel)]="producto.codigoBarras" name="codigoBarras" #codigoBarras="ngModel" placeholder="Código de Barras" class="gui-input">
+                                  <b class="tooltip tip-right-top">
+                                    <em> Código de Barras del producto.</em>
+                                  </b>
+                                  <label for="codigoBarras" class="field-icon"><i class="fa fa-flag"></i></label>
+                                </label>
+                                <div [hidden]="codigoBarras.valid || codigoBarras.pristine" class="alert alert-danger">
+                                   Se  un número de codigo Barras
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-8">
+                            <div class="section">
+                                <label class="field prepend-icon">
+                                  <textarea id="descripcion" required name="descripcion" [(ngModel)]="producto.descripcion" #descripcion="ngModel" placeholder="Descripción del producto" class="gui-textarea"></textarea>
+                                  <label for="descripcion" class="field-icon"><i class="fa fa-descripcions"></i></label>
+                                  <!-- <span class="input-footer"><strong>Hint:</strong>Don't be negative or off topic! just be awesome...</span> -->
+                                </label>
+                                <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">
+                                    Se necesita un descripción de producto
+                                 </div>
+                              </div>
+                            
+                        </div>
+                        
+                      </div>
+                      <!-- Multi Selects-->
+                      
+                      
+                      <div id="spy2" class="section-divider mv40"><span>Clasificaciones</span></div>
+                      <!-- .section-divider-->
+                      <!-- tooltips-->
+                      <div class="row">
+                        <div class="col-md-6 ">
+                            <label for="power">Clasificación 1 actual: <b>{{producto.clasificaciones.clasificacion1}}</b></label>
+                            <div class="section">
+                                <label class="field select">
+                                    <select class="form-control" id="clasificacion1" required [(ngModel)]="producto.clasificaciones.clasificacion1" name="clasificacion1" #power="ngModel">
+                                      
+                                        <option *ngFor="let clasificacion of itemsClasificaciones | async" [value]="clasificacion.nombre">{{clasificacion.nombre}}</option>
+                                      </select><i class="arrow"></i>
+                                </label>
+                              </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="power">Clasificación 2 actual: <b>{{producto.clasificaciones.clasificacion2}}</b></label>
+                            <div class="section">
+                                <label class="field select">
+                                    <select class="form-control" id="clasificacion2" required [(ngModel)]="producto.clasificaciones.clasificacion2" name="clasificacion2" #power="ngModel">
+                                
+                                        <option *ngFor="let clasificacion of itemsClasificaciones | async" [value]="clasificacion.nombre">{{clasificacion.nombre}}</option>
+                                      </select><i class="arrow"></i>
+                                </label>
+                              </div>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                          <div class="col-md-6 ">
+                              <label for="power">Clasificación 3 actual: <b>{{producto.clasificaciones.clasificacion3}}</b></label>
+                              <div class="section">
+                                  <label class="field select">
+                                      <select class="form-control" id="clasificacion3"  [(ngModel)]="producto.clasificaciones.clasificacion3" name="clasificacion3" #power="ngModel">
+                                
+                                          <option *ngFor="let clasificacion of itemsClasificaciones | async" [value]="clasificacion.nombre">{{clasificacion.nombre}}</option>
+                                        </select><i class="arrow"></i>
+                                  </label>
+                                </div>
+                          </div>
+                          <div class="col-md-6">
+                              <label for="power">Clasificación 4 actual: <b>{{producto.clasificaciones.clasificacion4}}</b></label>
+                              <div class="section">
+                                  <label class="field select">
+                                      <select class="form-control" id="clasificacion4"  [(ngModel)]="producto.clasificaciones.clasificacion4" name="clasificacion4" #power="ngModel">
+                                
+                                          <option *ngFor="let clasificacion of itemsClasificaciones | async" [value]="clasificacion.nombre">{{clasificacion.nombre}}</option>
+                                        </select><i class="arrow"></i>
+                                  </label>
+                                </div>
+                          </div>
+                          
+                        </div>
+                      
+                      <div id="spy3" class="section-divider mv40"><span>Imágenes</span></div>
+                      <div [hidden]="!img1sub">
+                        <h2>{{mensajeErrorImg1}}</h2>
+                        
+                      </div>
+                      <!-- .section-divider-->
+                      <!-- File Uploaders-->
+    
+                      <!-- imagen 1 -->
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="section">
+                                <img [src]="producto.imagen1" alt="Imagen no encontrada" class="img-responsive ">
+                              <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                                <input id="file1" type="file"  name="file1" (change)="getFile($event) " onchange="document.getElementById('up1').value = this.value;" class="gui-file">
+                                <input id="up1"  type="text" placeholder="Imagen principal" class="gui-input">
+                                <label class="field-icon"><i class="fa fa-upload"></i></label>
+                              </label>
+    
+    
+    
+    
+                              <div [hidden]="!imgError1" class="alert alert-danger alert-dismissable">
+                                <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImg1}}.
+                              </div>
+    
+    
+    
+                              <div [hidden]="!estadoCargaImg1" class="progress mt10">
+                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImg1 + '%'}"  [ngClass]="claseCargaImg1">{{porcentajeCargaImg1}}%</div>
+                              </div>
+    
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <!-- imagen 2 -->
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="section">
+                              <img [src]="producto.imagen2" alt="Imagen no encontrada" class="img-responsive ">
+                            <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="file2" type="file"  name="file2" (change)="getFile($event) " onchange="document.getElementById('up2').value = this.value;" class="gui-file">
+                                <input id="up2"  type="text" placeholder="Imagen 2" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+    
+    
+    
+                            <div [hidden]="!imgError2" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImg2}}.
+                            </div>
+    
+    
+    
+                            <div [hidden]="!estadoCargaImg2" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImg2 + '%'}"  [ngClass]="claseCargaImg2">{{porcentajeCargaImg2}}%</div>
+                            </div>
+    
+                          </div>
+                        </div>
+                        <!-- imagen 3 -->
+                        <div class="col-md-6 hidden-xs">
+                          <div class="section">
+                              <img [src]="producto.imagen3" alt="Imagen no encontrada" class="img-responsive ">
+                            <label class="field prepend-icon file"><span class="button btn-primary">Seleccionar</span>
+                              <input id="file3" type="file"  name="file3" (change)="getFile($event) " onchange="document.getElementById('up3').value = this.value;" class="gui-file">
+                                <input id="up3"  type="text" placeholder="Imagen 3" class="gui-input">
+                              <label class="field-icon"><i class="fa fa-upload"></i></label>
+                            </label>
+    
+    
+                            <div [hidden]="!imgError3" class="alert alert-danger alert-dismissable">
+                              <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImg3}}.
+                            </div>
+    
+    
+    
+                            <div [hidden]="!estadoCargaImg3" class="progress mt10">
+                              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImg3 + '%'}"  [ngClass]="claseCargaImg3">{{porcentajeCargaImg3}}%</div>
+                            </div>
+    
+    
+                          </div>
+                        </div>
+                      </div>
+                      <!-- imagen 4 -->
+                      <div class="row">
+                          <div class="col-md-6">
+                            <div class="section">
+                                <img [src]="producto.imagen4" alt="Imagen no encontrada" class="img-responsive ">
+                              <label class="field prepend-icon append-button file"><span class="button btn-primary">Seleccionar</span>
+                                <input id="file4" type="file"  name="file4" (change)="getFile($event) " onchange="document.getElementById('up4').value = this.value;" class="gui-file">
+                                <input id="up4"  type="text" placeholder="Imagen 4" class="gui-input">
+                                <label class="field-icon"><i class="fa fa-upload"></i></label>
+                              </label>
+    
+    
+    
+                              <div [hidden]="!imgError4" class="alert alert-danger alert-dismissable">
+                                <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImg4}}.
+                              </div>
+    
+    
+    
+                              <div [hidden]="!estadoCargaImg4" class="progress mt10">
+                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImg4 + '%'}"  [ngClass]="claseCargaImg4">{{porcentajeCargaImg4}}%</div>
+                              </div>
+    
+                            </div>
+                          </div>
+                          <!-- imagen 5 -->
+                          <div class="col-md-6 hidden-xs">
+                            <div class="section">
+                                <img [src]="producto.imagen5" alt="Imagen no encontrada" class="img-responsive ">
+                              <label class="field prepend-icon file"><span class="button btn-primary">Seleccionar</span>
+                                <input id="file5" type="file"  name="file5" (change)="getFile($event) " onchange="document.getElementById('up5').value = this.value;" class="gui-file">
+                                <input id="up5"  type="text" placeholder="Imagen 5" class="gui-input">
+                                <label class="field-icon"><i class="fa fa-upload"></i></label>
+                              </label>
+    
+    
+    
+    
+    
+                              <div [hidden]="!imgError5" class="alert alert-danger alert-dismissable">
+                                <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la imagen!</strong> {{mensajeErrorImg5}}.
+                              </div>
+    
+    
+    
+                              <div [hidden]="!estadoCargaImg5" class="progress mt10">
+                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaImg5 + '%'}"  [ngClass]="claseCargaImg5">{{porcentajeCargaImg5}}%</div>
+                              </div>
+    
+    
+    
+                            </div>
+                          </div>
+                        </div>
+                      
+                      <!-- File Uploaders3-->
+                      <div id="spy3" class="section-divider mv40"><span>Ficha técnica</span></div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="section">
+                              <label class="field prepend-icon file"><span class="button btn-primary">Seleccionar</span>
+                                <input id="filePDF" type="file"  name="filePDF" (change)="getFilePDF($event) " onchange="document.getElementById('uppdf').value = this.value;" class="gui-file">
+                                <input id="uppdf"  type="text" placeholder="Seleccionar pdf" class="gui-input">
+                                <label class="field-icon"><i class="fa fa-upload"></i></label>
+                              </label>
+    
+    
+    
+    
+    
+                              <div [hidden]="!fichaTecnicaError" class="alert alert-danger alert-dismissable">
+                                <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button><i class="fa fa-remove pr10"></i><strong>Error en la ficha!</strong> {{mensajeErrorFichaTecnica}}.
+                              </div>
+    
+    
+    
+                              <div [hidden]="!estadoCargaFichaTecnica" class="progress mt10">
+                                <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': porcentajeCargaFichaTecnica + '%'}"  [ngClass]="claseCargaFichaTecnica">{{porcentajeCargaFichaTecnica}}%</div>
+                              </div>
+    
+    
+    
+                            </div>
+                          </div>
+                          
+                        </div>
+                      
+    
+                      
+                      
+                      <div class="section button-list hidden">
+                        <input type="submit" value="Button normal" class="button">
+                        <button class="button btn-primary">Button primary</button><a href="javascript:;" class="button btn-rounded">Button rounded</a><a href="javascript:;" class="button btn-primary btn-rounded">Primary rounded</a>
+                      </div>
+                      <div class="section button-list hidden">
+                        <input type="submit" value="Pushed normal" class="button pushed">
+                        <button class="button pushed btn-primary">Pushed primary</button><a href="javascript:;" class="button pushed btn-rounded">Pushed round</a><a href="javascript:;" class="button pushed btn-primary btn-rounded">Pushed round</a>
+                      </div>
+                      <div class="section button-list hidden">
+                        <button class="button button-left">Button Left</button>
+                        <button class="button button-right">Button right</button><a href="javascript:;" class="button btn-primary button-left">Primary Left</a><a href="javascript:;" class="button btn-primary button-right">Primary Right</a>
+                      </div>
+                      <div class="section button-list hidden">
+                        <button class="button btn-pointed button-left">Pointed Left</button>
+                        <button class="button btn-pointed button-right">Pointed right</button><a href="javascript:;" class="button btn-pointed btn-primary button-left">Pointed Left</a><a href="javascript:;" class="button btn-pointed btn-primary button-right">Pointed Right</a>
+                      </div>
+                      <div class="section-divider hidden"><span class="bg-light">Simple Pricing Grid</span></div>
+                      <!-- .tagline-->
+                      
+                      
+                      
+                      <!-- .tagline-->
+                      
+                      
+                      <div class="panel-footer ">
+                        <button type="button" class="btn btn-success" [disabled]="!heroForm.form.valid"(click)="newHero()">Guardar</button>
+                        
+                        <a (click)="cancel()" class="btn btn-danger" style="margin-left: 20px;" >Cancelar</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- begin: .tray-right-->
+          
+        </section>
+      </section>
+      </div>
+      
+    

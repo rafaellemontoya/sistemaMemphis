@@ -1,0 +1,64 @@
+<div class="external-page sb-l-c sb-r-c onload-check">
+  <!-- Start: Main-->
+  <div id="main" class="animated fadeIn">
+    <!-- Start: Content-Wrapper-->
+    <section id="content_wrapper">
+      <!-- begin canvas animation bg-->
+      <div id="canvas-wrapper">
+        <canvas id="demo-canvas"></canvas>
+      </div>
+      <!-- Begin: Content-->
+      <section id="content">
+        <div id="login1" class="admin-form theme-info">
+          <div class="row mb15 table-layout">
+            <div class="col-xs-6 va-m pln"><a href="index.html" title="Return to Dashboard"><img src="assets/img/logos/logo_white.png" title="TemplateMonster Logo" class="img-responsive w250"></a></div>
+            <div class="col-xs-6 text-right va-b pr5">
+              
+            </div>
+          </div>
+          <div class="panel panel-info mt10 br-n">
+            
+
+              <div class="panel-body bg-light p30">
+                <div class="row">
+                  <div class="col-sm-7 pr30">
+                    
+                    <div class="section">
+                      <label for="username" class="field-label text-muted fs18 mb10">Usuario</label>
+                      <label for="username" class="field prepend-icon">
+                        <input id="username" [(ngModel)]="email" name="email" #email2="ngModel"required="" id="email"  placeholder=" Ingresa tu usuario" class="gui-input">
+                        <label for="username" class="field-icon"><i class="fa fa-user"></i></label>
+                      </label>
+                    </div>
+                    <div class="section">
+                      <label for="username" class="field-label text-muted fs18 mb10">Contraseña</label>
+                      <label for="password" class="field prepend-icon">
+                        <input id="password" type="password" [(ngModel)]="password" name="password" #password2="ngModel" required="" id="password2" placeholder="Ingresar contraseña" class="gui-input">
+                        <label for="password" class="field-icon"><i class="fa fa-lock"></i></label>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 br-l br-grey pl30">
+                    <h3 class="mb25"> Bienvenido al sistema de administración de Memphis:</h3>
+                    <p class="mb15"><span class="fa fa-check text-success pr5"></span> Ingresa tu usuario</p>
+                    <p class="mb15"><span class="fa fa-check text-success pr5"></span> Ingresa tu constraseña</p>
+                    <p class="mb15"><span class="fa fa-check text-success pr5"></span> Da click en el botón ingresar</p>
+                    <p class="mb15"><span class="fa fa-check text-success pr5"></span> Da click aquí para regresar a la sección de clientes</p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-footer clearfix p10 ph15">
+                <button (click)="makeLogin()" class="button btn-primary mr10 pull-right">Ingresar</button>
+                <label class="switch ib switch-primary pull-left input-align mt10">
+                  <input id="remember" type="checkbox" name="remember" checked="">
+                  <!-- <label for="remember" data-on="YES" data-off="NO"></label> <span>Remember me</span> -->
+                </label>
+              </div>
+
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+</div>

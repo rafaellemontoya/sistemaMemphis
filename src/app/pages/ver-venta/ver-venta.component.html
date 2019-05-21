@@ -1,0 +1,509 @@
+<div class="admin-elements-page">
+  <!-- Start: Content-Wrapper-->
+  <section id="content_wrapper">
+      <!-- Start: Topbar-Dropdown-->
+      <div id="topbar-dropmenu" class="alt">
+        <div class="topbar-menu row">
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-primary light"><span class="glyphicon glyphicon-inbox text-muted"></span><span class="metro-title">Messages</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-info light"><span class="glyphicon glyphicon-user text-muted"></span><span class="metro-title">Users</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-success light"><span class="glyphicon glyphicon-headphones text-muted"></span><span class="metro-title">Support</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-system light"><span class="glyphicon glyphicon-facetime-video text-muted"></span><span class="metro-title">Videos</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-warning light"><span class="fa fa-gears text-muted"></span><span class="metro-title">Settings</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-alert light"><span class="glyphicon glyphicon-picture text-muted"></span><span class="metro-title">Pictures</span></a></div>
+        </div>
+      </div>
+      <!-- Start: Topbar-->
+      <header id="topbar" class="alt">
+        <div class="topbar-left">
+          <ol class="breadcrumb">
+            
+            <li class="crumb-icon"><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="crumb-link"><a href="index.html">Ventas</a></li>
+            <li class="crumb-trail">Venta: {{venta.keyPublico}}</li>
+          </ol>
+        </div>
+        
+      </header>
+      <!-- Begin: Content-->
+      <section id="content" class="table-layout animated fadeIn">
+        <!-- begin: .tray-center-->
+        <div class="tray tray-center">
+          <div class="mw1000 center-block">
+            <!-- Begin: Content Header-->
+            <div class="content-header">
+              <h2> <b>Venta: {{venta.keyPublico}}</b> 
+              </h2>
+              <p class="lead">Para editar la información llena el formulario y da click en "Guardar" para editar la dirección de envío</p>
+            </div>
+            
+  
+  
+            <!-- Begin: Admin Form-->
+            <div class="admin-form">
+              <div  class="panel heading-border">
+                <!-- Panel guardado-->
+                <div [hidden]="!submitted" class="panel-body bg-light animated fadeIn">
+                    
+  
+                <div class="alert alert-success alert-dismissable mb30">
+                    <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                    <h3 class="mt5">Dirección guardada exitosamente!</h3>
+                    <p>Dirección de envío editada con éxito.</p><br>
+                    <div class="element-groups-sm-custom"><a routerLink="/ventas" class="btn btn-white">Continuar</a></div>
+                  </div>
+    
+    
+                </div>
+                <!-- Panel formulario-->
+                <div [hidden]="submitted" class="panel-body bg-light">
+                  <form (ngSubmit)="updateInfo()" (keydown.enter)="$event.preventDefault()" #heroForm="ngForm">
+                    <div id="spy1" class="section-divider mb40"><span>Información general</span></div>
+                    <!-- .section-divider-->
+                    <!-- Basic Inputs-->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="section">
+                          Id de pedido:
+                          <label class="field prepend-icon">
+                            <input id="tooltip1" type="text" name="tooltip1" readonly="true"  id="keyPublico" required [(ngModel)]="venta.keyPublico" name="keyPublico" #keyPublico="ngModel" placeholder="Cargando..." class="gui-input">
+                            
+                            <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                          </label>
+                          <div [hidden]="keyPublico.valid || keyPublico.pristine" class="alert alert-danger">
+                             Se necesita un calle y numero
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="section">
+                            Nombre del cliente:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="nombreCliente" [(ngModel)]="venta.nombreCliente" name="nombreCliente" #nombreCliente="ngModel" placeholder="Cargando..." class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>   
+                        <div class="col-md-4">
+                            <div class="section">
+                              Fecha de realización:
+                              <label class="field prepend-icon">
+                                <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="fecha" value="{{venta.fecha | date: 'dd-MM-yyyy hh:mm'}}" name="fecha"  placeholder="Cargando..." class="gui-input">
+                                
+                                
+                              </label>
+                              
+                            </div>
+                          </div>
+                        <div class="col-md-2">
+                          <div class="section">
+                            Estado del Pedido:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"readonly="true"  id="estado" [(ngModel)]="venta.estado" name="estado" #estado="ngModel" placeholder="Cargando..." class="gui-input">
+                              
+                            </label>
+                            
+                          </div>
+                        </div>                        
+                    </div>
+                    <!-- renglon 2 -->
+
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="section">
+                          Total:
+                          <label class="field prepend-icon">
+                            <input id="tooltip1" type="text" name="tooltip1" readonly="true"  id="total" required [(ngModel)]="venta.total" name="total" #total="ngModel" placeholder="Cargando..." class="gui-input">
+                            
+                            <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                          </label>
+                          <div [hidden]="total.valid || total.pristine" class="alert alert-danger">
+                             Se necesita un calle y numero
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="section">
+                            Estado del pago:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="pagado" [(ngModel)]="venta.pagado" name="pagado" #pagado="ngModel" placeholder="Cargando..." class="gui-input">
+                              
+                            
+                            </label>
+                            
+                          </div>
+                        </div>   
+                        <div class="col-md-4">
+                          <div class="section">
+                            Tienda:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"readonly="true"  id="tienda" [(ngModel)]="venta.tienda" name="tienda" #tienda="ngModel" placeholder="Cargando..." class="gui-input">
+                              
+                              <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                            </label>
+                            <div [hidden]="tienda.valid || tienda.pristine" class="alert alert-danger">
+                               Se necesita un calle y numero
+                            </div>
+                          </div>
+                        </div>                        
+                    </div>
+                    <!-- fin renglon 2 -->
+
+                     <!-- renglon 2 -->
+
+                     <div class="row">
+                        <div class="col-md-4">
+                          <div class="section">
+                            Fecha pago:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true"  id="total"  value="{{venta.fechaPago | date: 'dd-MM-yyyy hh:mm'}}" name="total"  placeholder="Cargando..." class="gui-input">
+                              
+                              <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                            </label>
+                            <div [hidden]="total.valid || total.pristine" class="alert alert-danger">
+                               Se necesita un calle y numero
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="section">
+                              Fecha Envío:
+                              <label class="field prepend-icon">
+                                <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="pagado" value="{{venta.fechaEnvio | date: 'dd-MM-yyyy hh:mm'}}" placeholder="Cargando..." class="gui-input">
+                                
+                              
+                              </label>
+                              
+                            </div>
+                          </div>   
+                          <div class="col-md-4">
+                            <div class="section">
+                              Fecha Entrega:
+                              <label class="field prepend-icon">
+                                <input id="tooltip1" type="text" name="tooltip1" readonly="true"  id="tienda" value="{{venta.fechaEntrega | date: 'dd-MM-yyyy hh:mm'}}" placeholder="Cargando..." class="gui-input">
+                                
+                                
+                              </label>
+                              
+                            </div>
+                          </div>                        
+                      </div>
+                      <!-- fin renglon 2 -->
+                    <!-- fin informacion general            -->
+
+
+
+                    <!-- envio -->
+                    <div id="spy1" class="section-divider mb40"><span>Productos</span></div>
+                    <!-- renglon1 -->
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="section">
+                              Unidades
+                              
+                            </div>
+                          </div>
+                      <div class="col-md-6">
+                        <div class="section">
+                          Nombre de producto
+                          
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="section">
+                            Descuento
+
+                            
+                          </div>
+                        </div>   
+                      <div class="col-md-2">
+                          <div class="section">
+                            Importe
+
+                            
+                          </div>
+                        </div>                        
+                    </div>
+                    <!-- renglon2 -->
+                    <div class="row" *ngFor="let producto of itemsProductos | async">
+                        <div class="col-md-2">
+                            <div class="section">
+                              
+                              <label class="field prepend-icon">
+                                <input id="tooltip1" type="text" name="tooltip1"  id="unidades" readonly="true"   value="{{producto.unidades}}" name="unidades"  placeholder="" class="gui-input">
+                                
+                              </label>
+                             
+                            </div>
+                          </div>
+                      <div class="col-md-6">
+                        <div class="section">
+                          
+                          <label class="field prepend-icon">
+                            <input id="tooltip1" type="text" name="tooltip1"  id="nombre" readonly="true"  value="{{producto.nombre}}" name="nombre"  placeholder="" class="gui-input">
+                            </label>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="section">
+                            
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"readonly="true"   id="descuento" value="{{producto.descuento | currency}}" name="descuento"  placeholder="" class="gui-input">
+                              
+                            </label>
+                            
+                          </div>
+                        </div>  
+                      <div class="col-md-2">
+                          <div class="section">
+                            
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true"   id="importe" value="{{producto.importe | currency}}" name="importe"  placeholder="" class="gui-input">
+                              
+                            </label>
+                            
+                          </div>
+                        </div>                        
+                    </div>
+                    
+
+                    <!-- renglon1 -->
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="section">
+                              
+                              
+                            </div>
+                          </div>
+                      <div class="col-md-6">
+                        <div class="section">
+                          
+                          
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="section">
+                            Total
+
+                            
+                          </div>
+                        </div>   
+                      <div class="col-md-2">
+                          <div class="section">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true"   id="importe" value="{{venta.total | currency}}" name="importe"  placeholder="" class="gui-input">
+
+                            
+                          </div>
+                        </div>                        
+                    </div>
+                    
+                    
+                    
+                    <!-- fin productos -->
+  
+  
+                    
+                    
+                    <!-- envio -->
+                    <div id="spy1" class="section-divider mb40"><span>Dirección de Entrega</span></div>
+                    <!-- renglon1 -->
+                    <div class="row">
+                      <div class="col-md-9">
+                        <div class="section">
+                          Calle y número:
+                          <label class="field prepend-icon">
+                            <input id="tooltip1" type="text" name="tooltip1"  id="calleNum"  readonly="true" [(ngModel)]="venta.calleNum" name="calleNum" #calleNum="ngModel" placeholder="Cargando..." class="gui-input">
+                            <b class="tooltip tip-right-top">
+                              <em> Calle y número.</em>
+                            </b>
+                            <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                          </label>
+                          <div [hidden]="calleNum.valid || calleNum.pristine" class="alert alert-danger">
+                             Se necesita un calle y numero
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                          <div class="section">
+                            Interior:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"  id="numeroInterior" readonly="true" [(ngModel)]="venta.numeroInterior" name="numeroInterior" #numeroInterior="ngModel" placeholder="Cargando..." class="gui-input">
+                              <b class="tooltip tip-right-top">
+                                <em> Interior.</em>
+                              </b>
+                              <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                            </label>
+                            <div [hidden]="numeroInterior.valid || numeroInterior.pristine" class="alert alert-danger">
+                               Se necesita un calle y numero
+                            </div>
+                          </div>
+                        </div>                        
+                    </div>
+                    <!-- renglon 2 -->
+                    <div class="row">
+                      <div class="col-md-4">
+                          <div class="section">
+                              Teléfono de contacto:
+                              <label class="field prepend-icon">
+                                <input type="number" min="1"  id="telefono" required [(ngModel)]="venta.telefono" name="telefono" #telefono="ngModel" placeholder="Precio" class="gui-input">
+                                <b class="tooltip tip-right-top">
+                                  <em> Teléfono de contacto.</em>
+                                </b>
+                                <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                              </label>
+                              <div [hidden]="telefono.valid || telefono.pristine" class="alert alert-danger">
+                                 Se necesita un telefono
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="section">
+                              Código postal:
+                              <label class="field prepend-icon">
+                                <input type="number" min="1"  id="cp" required [(ngModel)]="venta.cp" name="cp" #cp="ngModel" placeholder="Costo" class="gui-input">
+                                <b class="tooltip tip-right-top">
+                                  <em> Código postal.</em>
+                                </b>
+                                <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                              </label>
+                              <div [hidden]="cp.valid || cp.pristine" class="alert alert-danger">
+                                 Se necesita un cp.
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="section">
+                              Ciudad:
+                              <label class="field prepend-icon">
+                                <input type="text"  id="ciudad" min="0" max="100" [(ngModel)]="venta.ciudad" name="ciudad" #ciudad="ngModel" placeholder="Ciudad" class="gui-input">
+                                <b class="tooltip tip-right-top">
+                                  <em>  Ciudad</em>
+                                </b>
+                                <label for="tooltip1" class="field-icon"><i class="fa fa-flag"></i></label>
+                              </label>
+                              <div [hidden]="ciudad.valid || ciudad.pristine" class="alert alert-danger">
+                                 Se necesita una ciudad
+                              </div>
+                          </div>
+                      </div>
+                      
+
+                    </div>
+                    <!-- renglon 3 -->
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="section">
+                              <div class="field-label">Estado </div>
+                          <select id="estado" class="field select"  readonly="true" [(ngModel)]="venta.estadoCliente" name="estadoCliente" #power="ngModel">
+                              <option value='aguascalientes'>Aguascalientes</option>
+                              <option value='Baja California'>Baja California</option>
+                              <option value='Baja California Sur'>Baja California Sur</option>
+                              <option value='Campeche'>Campeche</option>
+                              <option value='Chiapas'>Chiapas</option>
+                              <option value='Chihuahua'>Chihuahua</option>
+                              <option value='Ciudad de México'>Ciudad de México</option>
+                              <option value='Coahuila'>Coahuila</option>
+                              <option value='Colima'>Colima</option>
+                              <option value='Durango'>Durango</option>
+                              <option value='Estado de México'>Estado de México</option>
+                              <option value='Guanajuato'>Guanajuato</option>
+                              <option value='Guerrero'>Guerrero</option>
+                              <option value='Hidalgo'>Hidalgo</option>
+                              <option value='Jalisco'>Jalisco</option>
+                              <option value='Michoacán'>Michoacán</option>
+                              <option value='Morelos'>Morelos</option>
+                              <option value='Nayarit'>Nayarit</option>
+                              <option value='Nuevo León'>Nuevo León</option>
+                              <option value='Oaxaca'>Oaxaca</option>
+                              <option value='Puebla'>Puebla</option>
+                              <option value='Querétaro'>Querétaro</option>
+                              <option value='Quintana Roo'>Quintana Roo</option>
+                              <option value='San Luis Potosí'>San Luis Potosí</option>
+                              <option value='Sinaloa'>Sinaloa</option>
+                              <option value='Sonora'>Sonora</option>
+                              <option value='Tabasco'>Tabasco</option>
+                              <option value='Tamaulipas'>Tamaulipas</option>
+                              <option value='Tlaxcala'>Tlaxcala</option>
+                              <option value='Veracruz'>Veracruz</option>
+                              <option value='Yucatán'>Yucatán</option>
+                              <option value='Zacatecas'>Zacatecas</option>
+                          </select>
+
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+
+                          
+                      </div>
+                      
+                    </div>
+                    <!-- fin envio -->
+  
+                    <!-- Envio -->
+                    <div id="spy1" class="section-divider mb40"><span>Envío</span></div>
+                    <!-- .section-divider-->
+                    <!-- Basic Inputs-->
+                    <!-- renglon 1 -->
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="section">
+                          Tipo de envío:
+                          <label class="field prepend-icon">
+                            <input id="tooltip1" type="text" name="tooltip1" readonly="true"  id="tipoEnvio" required [(ngModel)]="venta.tipoEnvio" name="tipoEnvio" #tipoEnvio="ngModel" placeholder="Cargando..." class="gui-input">
+                            
+                          </label>
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="section">
+                            Paqueteria:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="paqueteriaEnvio" [(ngModel)]="venta.paqueteriaEnvio" name="paqueteriaEnvio" #paqueteriaEnvio="ngModel" placeholder="Cargando..." class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>   
+                        <div class="col-md-4">
+                            <div class="section">
+                              Número de guía:
+                              <label class="field prepend-icon">
+                                <input id="tooltip1" type="text" name="tooltip1" readonly="true" id="numeroGuia" value="{{venta.numeroGuia}}" name="numeroGuia"  placeholder="Cargando..." class="gui-input">
+                                
+                                
+                              </label>
+                              
+                            </div>
+                          </div>
+                        <div class="col-md-2">
+                          <div class="section">
+                            Costo de envío:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1"readonly="true"  id="costoEnvio"  value="{{venta.costoEnvio | currency}}" name="costoEnvio"  placeholder="Cargando..." class="gui-input">
+                              
+                            </label>
+                            
+                          </div>
+                        </div>                        
+                    </div>
+                   
+                    <!-- fin envio            -->
+
+
+                    
+                    <!-- .tagline-->
+                   
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- begin: .tray-right-->
+        
+      </section>
+    </section>
+    </div>
+    
+  

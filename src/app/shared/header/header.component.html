@@ -1,0 +1,108 @@
+   <!-- Page Header-->
+      <!--
+      ---------------------------------------------------------------+
+      ".navbar" Helper Classes:
+      -------------------------------------------------------------------+
+      * Positioning Classes:
+      '.navbar-static-top' - Static top positioned navbar
+      '.navbar-static-top' - Fixed top positioned navbar
+      * Available Skin Classes:
+      .bg-dark    .bg-primary   .bg-success
+      .bg-info    .bg-warning   .bg-danger
+      .bg-alert   .bg-system
+      -------------------------------------------------------------------+
+      Example: <header class="navbar navbar-fixed-top bg-primary">
+      Results: Fixed top navbar with primary background
+      -----------------------------------------------------------------
+      -->
+  <!-- Start: Header-->
+  <div  [hidden]="!hayUser">
+  <header class="navbar bg-system">
+      <div class="navbar-branding bg-system" ><a routerLink="/inicio" class="navbar-brand text-uppercase">MEMPHIS</a><span id="toggle_sidemenu_l" class="fa fa-bars"></span></div>
+      <ul class="nav navbar-nav navbar-left"></ul>
+      <!-- <form role="search" class="navbar-form navbar-left navbar-search alt"><span class="hide visible-md-inline-block visible-lg-inline-block fa fa-search fs18"></span>
+        <div class="form-group">
+          <input type="text" placeholder="Search..." class="form-control">
+        </div>
+      </form> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>{{getNombreEmpleado()}}</li>
+        <li><img [src]="getImagenEmpleado()"  class="img-responsive mw60 ib mr10"></li>
+        <li class="dropdown menu-merge"><a href="#" data-toggle="dropdown" class="dropdown-toggle fw600 p15"><span class="fa fa-angle-down"></span> </a>
+          <ul role="menu" class="dropdown-menu list-group dropdown-persist w250">
+            <!-- <li class="dropdown-header clearfix">
+              <div class="pull-left ml10">
+                <select id="user-status">
+                  <optgroup label="Current Status:">
+                    <option value="1-1">Away</option>
+                    <option value="1-2">Offline</option>
+                    <option value="1-3" selected="selected">Online</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="pull-right mr10">
+                <select id="user-role">
+                  <optgroup label="Logged in As:">
+                    <option value="1-1">Client</option>
+                    <option value="1-2">Editor</option>
+                    <option value="1-3" selected="selected">Admin</option>
+                  </optgroup>
+                </select>
+              </div>
+            </li> -->
+            <!-- <li class="list-group-item"><a href="#" class="animated animated-short fadeInUp"><span class="fa fa-envelope"></span> Messages<span class="label label-warning">2</span></a></li>
+            <li class="list-group-item"><a href="#" class="animated animated-short fadeInUp"><span class="fa fa-user"></span> Friends<span class="label label-warning">6</span></a></li>
+            <li class="list-group-item"><a href="#" class="animated animated-short fadeInUp"><span class="fa fa-bell"></span> Notifications</a></li>
+            <li class="list-group-item"><a href="#" class="animated animated-short fadeInUp"><span class="fa fa-gear"></span> Settings</a></li> -->
+            <li class="dropdown-footer"><a (click)="logout()"><span class="fa fa-power-off pr5"></span> Cerrar sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Start: Sidebar-->
+    <aside id="sidebar_left" class="nano nano-light affix">
+      <!-- Start: Sidebar Left Content-->
+      <div class="sidebar-left-content nano-content">
+        <!-- Start: Sidebar Header-->
+        <header class="sidebar-header">
+          <!-- Sidebar Widget - Search (hidden)-->
+          <!-- <div class="sidebar-widget search-widget hidden">
+            <div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span>
+              <input id="sidebar-search" type="text" placeholder="Search..." class="form-control"/>
+            </div>
+          </div> -->
+        </header>
+        <ul class="nav sidebar-menu">
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/estadisticas"><span class="imoon imoon-stats"></span><span class="sidebar-title">Estadísticas</span></a>
+          </li>
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/administrar-inicio"><span class="octicon octicon-browser"></span><span class="sidebar-title">Admin inicio</span></a>
+          </li>
+          
+          
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/empleados"><span class="imoon imoon-users2"></span><span class="sidebar-title">Empleados</span></a>
+          </li>
+          
+          
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/productos"><span class="icon-film-camera"></span><span class="sidebar-title">Productos</span></a>
+          </li>
+          
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/ventas"><span class="octicon octicon-repo-force-push"></span><span class="sidebar-title">Pedidos activos</span></a>
+          </li>
+
+          <li class="sidebar-label pt35"></li>
+          <li><a routerLink="/historial-pedidos"><span class="octicon octicon-history"></span><span class="sidebar-title">Historial de pedidos</span></a>
+          </li>
+          
+
+        </ul>
+        <!-- Start: Sidebar Collapse Button-->
+        <div class="sidebar-toggle-mini"><a href="#"><span class="fa fa-sign-out"></span></a></div>
+      </div>
+    </aside>
+
+  </div>

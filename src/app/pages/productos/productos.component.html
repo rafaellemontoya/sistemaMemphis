@@ -1,0 +1,149 @@
+<section id="content_wrapper">
+    <!-- Start: Topbar-Dropdown-->
+
+    <!-- Start: Topbar-->
+    <div id="topbar" class="text-center bg-white alt ph10 br-b-ddd">
+      <div>
+        <h1>Productos</h1>
+      </div>
+      
+    </div>
+    <!-- Begin: Content-->
+    <section id="content" class="table-layout">
+      <!-- begin: .tray-center-->
+      <div class="tray tray-center" style="height: 802px;">
+        <!-- create new order panel-->
+        <div class="panel  ">
+          
+          
+    
+          <div class="panel-body ">
+              <div class="section row">
+                  <div class="col-md-12">
+                    
+                      <div class="row  text-center element-groups-custom">
+                          
+                          <div class="bs-¡">
+                            <a routerLink="/nuevo-producto" class="btn btn-rounded btn-system btn-block">Agregar Producto</a>
+                          </div>
+                        </div>
+
+                  </div>
+                  
+                </div>
+          </div>
+    
+        </div>
+        <!-- recent orders table-->
+        <div class="panel">
+          <div class="panel-menu p12 admin-form theme-primary">
+            <div class="row">
+              <div class="col-md-4">
+                  <div class="section">
+                      <label class="field prepend-icon">
+                        <input type="text"  (keyup)="buscar($event)"  placeholder="Buscar..." class="gui-input">
+                        <b class="tooltip tip-right-top">
+                          <em> Escribe el nombre a buscar.</em>
+                        </b>
+                        <label for="tooltip1" class="field-icon"><i class="fa fa-search"></i></label>
+                      </label>
+                      
+                  </div>
+                
+              </div>
+              <div class="col-md-4 mt-10 mt-md-0">
+                
+              </div>
+              <div class="col-md-4 mt-10 mt-md-0">
+  
+              </div>
+            </div>
+          </div>
+          <div [hidden]="!preguntaEliminar" class="panel-body bg-light animated fadeIn">
+                  
+
+            <div class="alert alert-danger alert-dismissable mb30">
+                <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                <h3 class="mt5">¿Estás seguro que quieres eliminar el producto {{productoSeleccionado.nombre}}?</h3>
+                <p>Esta acción no se puede deshacer.</p><br>
+                <div class="element-groups-sm-custom"><a (click)="cancelarEliminar()" class="btn btn-white">Cancelar</a><button type="button" (click)="eliminarEntrada(productoSeleccionado.key)" class="btn btn-default">Eliminar</button></div>
+              </div>
+
+
+            </div>
+            <div [hidden]="!eliminarExitoso" class="panel-body bg-light animated fadeIn">
+                  
+
+              <div class="alert alert-success alert-dismissable mb30">
+                  <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                  <h3 class="mt5">Producto eliminado con éxito!</h3>
+                  <p>Producto añadido con éxito.</p><br>
+                  <div class="element-groups-sm-custom"><a (click)="terminarEliminar()" class="btn btn-white">Aceptar</a></div>
+                </div>
+  
+  
+              </div>
+          <div class="panel-body pn">
+            <div class="table-responsive of-y-a">
+              <table class="table admin-form theme-warning tc-checkbox-1 fs13">
+                <thead>
+                  <tr class="bg-light">
+                    
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Clasificación</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th class="text-right">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itemsProductos | async">
+
+                    <td class="w100"><img title="user" [src]="item.imagen1" class="img-responsive mw40 ib mr10"></td>
+                    <td>{{item.nombre }}</td>
+                    <td><span class="tag label bg-primary light" style=" margin-right: 2px;">{{item.clasificaciones.clasificacion1}}</span> 
+                      <span class="tag label bg-primary light" style=" margin-right: 2px;"> {{item.clasificaciones.clasificacion2}}</span> 
+                      <span class="tag label bg-primary light" style=" margin-right: 2px;"> {{item.clasificaciones.clasificacion3}}</span> 
+                      <span class="tag label bg-primary light" style=" margin-right: 2px;"> {{item.clasificaciones.clasificacion4}}</span> 
+                      </td>
+                    <td>${{item.precioPublico}}</td>
+                    <td>{{item.unidades}}</td>
+                    <td class="text-right">
+                      <div class="btn-group text-right">
+                        <button type="button" data-toggle="dropdown" aria-expanded="false" class="btn btn-success br2 btn-xs fs12 dropdown-toggle">Activo<span class="caret ml15"></span></button>
+                        <ul role="menu" class="dropdown-menu">
+                          <li><a [routerLink]="['/editar-producto', item.key]">Editar</a></li>
+                          <li><a style="cursor:pointer;" (click)="preguntarEliminar(item)">Borrar</a></li>
+                          <!-- <li><a href="#">Archive</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Complete</a></li>
+                          <li class="active"><a href="#">Pending</a></li>
+                          <li><a href="#">Canceled</a></li> -->
+                        </ul>
+                      </div>
+                    </td>
+
+                  
+                   
+                  </tr>
+                  
+                  
+                  
+                  
+                  
+                
+                  
+                  
+                  
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- begin: .tray-right-->
+      
+    </section>
+  </section>
