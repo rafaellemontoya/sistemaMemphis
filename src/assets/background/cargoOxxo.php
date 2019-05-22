@@ -2,7 +2,7 @@
 
 require_once("lib/Conekta.php");
 
-\Conekta\Conekta::setApiKey("key_ARR2ZdY6pV5PuqRhxGVwtw");
+\Conekta\Conekta::setApiKey("key_WY7i4c5CWnofjAyryEnr1Q");
 
 \Conekta\Conekta::setApiVersion("2.0.0");
 
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           "status" => 1,
           "idOrden" => $order->id,
           "referencia" => $order->charges[0]->payment_method->reference,
-          "monto" => $order->amount/100 
+          "monto" => $order->amount/100
         );
         echo json_encode( $respuesta);
 

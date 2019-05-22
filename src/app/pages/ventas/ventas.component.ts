@@ -22,6 +22,10 @@ export class VentasComponent implements OnInit {
   cliente: any;
   claseEstado: string;
 
+  statusFichaPagoEnviada = false;
+  statusFichaPagoError = false;
+  mensajeFichaPagoError = '';
+
   empleadoActual: Empleado;
   constructor(db: AngularFireDatabase, private sessionService: SessionServiceService, private router: Router,
     private cargoOxxo: PagoOxxoService, private mailing: MailingService) {
@@ -69,6 +73,9 @@ getProductos(productos: any) {
 updateEstado(estado: string, keyVenta: string ) {
   let parametro = '';
   switch (estado) {
+    case 'Ficha OXXO enviada':
+    parametro = 'fechaFicha';
+    break;
     case 'Pagado':
     parametro = 'fechaPago';
     break;
@@ -123,7 +130,22 @@ generarPagoOxxxo(venta) {
      venta.cliente.email, venta.cliente.telefono, venta.key, precioEnvio, paqueteria, calleEnvio, cp).subscribe( (data) => {
       console.log(data);
       if (data['status'] === 1) {
-        this.mailing.fichaOxxoCreada(venta.cliente.nombre, venta.cliente.email, data['referencia'], data['monto']);
+        this.mailing.fichaOxxoCreada(venta.cliente.nombre, venta.cliente.email, data['referencia'], data['monto'])
+        .subscribe ((dataMailing) => {
+          console.log (dataMailing);
+          if (dataMailing['status'] === 1) {
+            this.updateEstado('Ficha OXXO enviada', venta.key);
+            this.statusFichaPagoEnviada = true;
+            window.scroll(0, 0);
+          } else {
+            this.statusFichaPagoError = true;
+          }
+        });
+        // this.mailing.fichaOxxoCreada(venta.cliente.nombre, venta.cliente.email, data['referencia'], data['monto']);
+      } else {
+        this.statusFichaPagoError = true;
+        this.mensajeFichaPagoError = data['mensaje'];
+        window.scroll(0, 0);
       }
     }, (error) => {
       console.log(error);

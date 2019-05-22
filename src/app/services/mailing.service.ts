@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-interface datosMailing {
+interface DatosMailing {
   nombreCliente: string;
   email: string;
   referencia: string;
@@ -15,7 +15,7 @@ export class MailingService {
   constructor(private http: HttpClient) { }
 
   fichaOxxoCreada(nombreCliente: string, email: string, referencia: string, monto: number ) {
-    const datos: datosMailing = {
+    const datos: DatosMailing = {
       nombreCliente: nombreCliente,
       email: email,
       referencia: referencia,

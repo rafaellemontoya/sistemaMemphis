@@ -21,12 +21,32 @@
             <div class="section row">
                 <div class="col-md-12">
                   
-                    <div class="row  text-center element-groups-custom">
-                        
-                        <div class="bs-¡">
-                          <!-- <a routerLink="/nuevo-producto" class="btn btn-rounded btn-system btn-block"> Producto</a> -->
+                    <div [hidden]="!statusFichaPagoEnviada" class="panel-body bg-light animated fadeIn">
+                    
+  
+                        <div class="alert alert-success alert-dismissable mb30">
+                            <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                            <h3 class="mt5">Ficha enviada exitosamente!</h3>
+                            <p>Se envió un correo al cliente con la ficha de pago.</p><br>
+                            <div class="element-groups-sm-custom"><button type="button" (click)="statusFichaPagoEnviada=false; " class="btn btn-default">Aceptar</button></div>
+                          </div>
+            
+            
                         </div>
-                      </div>
+
+                        <div [hidden]="!statusFichaPagoError" class="panel-body bg-light animated fadeIn">
+                    
+  
+                            <div class="alert alert-danger alert-dismissable mb30">
+                                <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                                <h3 class="mt5">Error al enviar la ficha!</h3>
+                                <p>{{mensajeFichaPagoError}} </p>
+                                <p>Inténtalo nuevamente.</p><br>
+                                <div class="element-groups-sm-custom"><button type="button" (click)="statusFichaPagoError=false; " class="btn btn-default">Aceptar</button></div>
+                              </div>
+                
+                
+                            </div>
 
                 </div>
                 
@@ -36,6 +56,7 @@
       </div>
       <!-- recent orders table-->
       <div class="panel">
+        
         <!-- <div class="panel-menu p12 admin-form theme-primary">
           <div class="row">
             <div class="col-md-4">
