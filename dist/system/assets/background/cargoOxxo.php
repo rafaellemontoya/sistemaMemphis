@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $calleEnvio = $_POST['calleEnvio'];
 
-    $cp = $_POST['cp'];
+    $cp = (int)$_POST['cp'];
 
 
     if (strlen($telefono)!= 10){

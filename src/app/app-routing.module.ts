@@ -15,6 +15,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { EditarEmpleadoComponent } from './pages/editar-empleado/editar-empleado.component';
 import { HistorialPedidosComponent } from './pages/historial-pedidos/historial-pedidos.component';
 import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
+import { PaqueteriaComponent } from './pages/paqueteria/paqueteria.component';
 
 const app_routes: Routes = [
 
@@ -33,6 +34,7 @@ const app_routes: Routes = [
     {path: 'administrar-inicio', component: AdministrarInicioComponent},
     {path: 'estadisticas', component: EstadisticasComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'paqueteria', component: PaqueteriaComponent},
     {path: 'inicio', component: InicioComponent}
 ];
 @NgModule({

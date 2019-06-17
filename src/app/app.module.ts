@@ -27,6 +27,7 @@ import { EditarEmpleadoComponent } from './pages/editar-empleado/editar-empleado
 import { HistorialPedidosComponent } from './pages/historial-pedidos/historial-pedidos.component';
 import { EstadisticasComponent } from './pages/estadisticas/estadisticas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaqueteriaComponent } from './pages/paqueteria/paqueteria.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     InicioComponent,
     EditarEmpleadoComponent,
     HistorialPedidosComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    PaqueteriaComponent
   ],
   imports: [
     BrowserModule,

@@ -27,6 +27,7 @@ export class Producto  {
     empleadoAlta: string;
     nombreBusqueda: string;
     marca: string;
+    peso: number;
 
 
 

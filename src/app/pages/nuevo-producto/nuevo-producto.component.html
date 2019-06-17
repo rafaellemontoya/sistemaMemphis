@@ -94,7 +94,7 @@
                   <!-- Input Icons-->
                   <div class="row">
                     
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="section">
                             <label class="field prepend-icon">
                               <input type="number" min="1"  id="costo" required [(ngModel)]="model.costo" name="costo" #costo="ngModel" placeholder="Costo" class="gui-input">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="section">
                             <label class="field prepend-icon">
                               <input type="number"  id="descuento" min="0" max="100" [(ngModel)]="model.descuentoPromocion" name="descuento" #descuento="ngModel" placeholder="% de Descuento" class="gui-input">
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="section">
                             <label class="field prepend-icon">
                               <input type="number" required id="unidades" min="0"  [(ngModel)]="model.unidades" name="unidades" #unidades="ngModel" placeholder="Unidades" class="gui-input">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                   
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                     <div class="section">
                         <label class="field prepend-icon">
                           <input type="text" id="marca"   [(ngModel)]="model.marca" name="marca" #marca="ngModel" placeholder="Marca" class="gui-input">
@@ -151,6 +151,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2">
+                  <div class="section">
+                      <label class="field prepend-icon">
+                        <input type="number" id="peso"  required [(ngModel)]="model.peso" name="peso" #peso="ngModel" placeholder="Peso en kg" class="gui-input">
+                        <b class="tooltip tip-right-top">
+                          <em> Peso del producto.</em>
+                        </b>
+                        <label for="peso" class="field-icon"><i class="fa fa-flag"></i></label>
+                      </label>
+                      <div [hidden]="peso.valid || peso.pristine" class="alert alert-danger">
+                         Se  un número de codigo Barras
+                      </div>
+                  </div>
+              </div>
               </div>
                   <!-- Input Formats-->
                   <div class="row">

@@ -1,0 +1,162 @@
+<div class="admin-elements-page">
+  <!-- Start: Content-Wrapper-->
+  <section id="content_wrapper">
+      <!-- Start: Topbar-Dropdown-->
+      <div id="topbar-dropmenu" class="alt">
+        <div class="topbar-menu row">
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-primary light"><span class="glyphicon glyphicon-inbox text-muted"></span><span class="metro-title">Messages</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-info light"><span class="glyphicon glyphicon-user text-muted"></span><span class="metro-title">Users</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-success light"><span class="glyphicon glyphicon-headphones text-muted"></span><span class="metro-title">Support</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-system light"><span class="glyphicon glyphicon-facetime-video text-muted"></span><span class="metro-title">Videos</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-warning light"><span class="fa fa-gears text-muted"></span><span class="metro-title">Settings</span></a></div>
+          <div class="col-xs-4 col-sm-2"><a href="#" class="metro-tile bg-alert light"><span class="glyphicon glyphicon-picture text-muted"></span><span class="metro-title">Pictures</span></a></div>
+        </div>
+      </div>
+      <!-- Start: Topbar-->
+      <header id="topbar" class="alt">
+        <div class="topbar-left">
+          <ol class="breadcrumb">
+            
+            <li class="crumb-icon"><a href="index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+            
+            <li class="crumb-trail">Paquetería</li>
+          </ol>
+        </div>
+        
+      </header>
+      <!-- Begin: Content-->
+      <section id="content" class="table-layout animated fadeIn">
+        <!-- begin: .tray-center-->
+        <div class="tray tray-center">
+          <div class="mw1000 center-block">
+            <!-- Begin: Content Header-->
+            <div class="content-header">
+              <h2> <b>Paquetería</b> 
+              </h2>
+              <p class="lead">Para editar la información llena el formulario y da click en "Guardar" para editar la dirección de envío</p>
+            </div>
+            
+  
+  
+            <!-- Begin: Admin Form-->
+            <div class="admin-form">
+              <div  class="panel heading-border">
+                <!-- Panel guardado-->
+                <div [hidden]="!submitted" class="panel-body bg-light animated fadeIn">
+                    
+  
+                <div class="alert alert-success alert-dismissable mb30">
+                    <!-- <button type="button" data-dismiss="alert" aria-hidden="true" class="close"></button> -->
+                    <h3 class="mt5">Paquetería guardada exitosamente!</h3>
+                    <p>Paquetería de envío editada con éxito.</p><br>
+                    <div class="element-groups-sm-custom"><a (click)="submitted=false" class="btn btn-white">Aceptar</a></div>
+                  </div>
+    
+    
+                </div>
+                <!-- Panel formulario-->
+                <div [hidden]="submitted" class="panel-body bg-light">
+                  <form (ngSubmit)="updateInfo()" (keydown.enter)="$event.preventDefault()" #heroForm="ngForm">
+                     
+                    
+                   
+                 
+                   
+                    <!-- fin envio -->
+  
+                    <!-- Envio -->
+                    <div id="spy1" class="section-divider mb40"><span>Información</span></div>
+                    <!-- .section-divider-->
+                    <!-- Basic Inputs-->
+                    <!-- renglon 1 -->
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="section">
+                          Nombre de paquetería:
+                          <label class="field prepend-icon">
+                              <div class="section">
+                                  
+                                <label class="field prepend-icon">
+                                  <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.nombre" [(ngModel)]="paqueteria.nombre" name="paqueteria.nombre" #paqueteria.nombre="ngModel" placeholder="Nombre" class="gui-input">
+                                </label>
+    
+                              </div>
+                            
+                          </label>
+                          
+                        </div>
+                      </div>
+                                              
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="section">
+                          Costo 5 kg:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.costo5kg" [(ngModel)]="paqueteria.costo5kg" name="paqueteria.costo5kg" #paqueteria.costo5kg="ngModel" placeholder="Costo 5 kg" class="gui-input">
+                            </label>
+                            
+                          
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="section">
+                            Costo 10 kg:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.costo10kg" [(ngModel)]="paqueteria.costo10kg" name="paqueteria.costo10kg" #paqueteria.costo10kg="ngModel" placeholder="Costo 10 kg" class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>   
+                        <div class="col-md-2">
+                          <div class="section">
+                            Costo 15 kg:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.costo15kg" [(ngModel)]="paqueteria.costo15kg" name="paqueteria.costo15kg" #paqueteria.costo15kg="ngModel" placeholder="Costo 15 kg" class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>  
+                        <div class="col-md-2">
+                          <div class="section">
+                            Costo 20 kg:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.costo20kg" [(ngModel)]="paqueteria.costo20kg" name="paqueteria.costo20kg" #paqueteria.costo20kg="ngModel" placeholder="Costo 20 kg" class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>     
+                        <div class="col-md-2">
+                          <div class="section">
+                            Costo 25 kg:
+                            <label class="field prepend-icon">
+                              <input id="tooltip1" type="text" name="tooltip1" id="paqueteria.costo25kg" [(ngModel)]="paqueteria.costo25kg" name="paqueteria.costo25kg" #paqueteria.costo25kg="ngModel" placeholder="Costo 25 kg" class="gui-input">
+                            </label>
+                            
+                          </div>
+                        </div>                       
+                    </div>
+                   
+                    <!-- fin envio            -->
+                    <div class="panel-footer ">
+                        <button type="button" class="btn btn-success" [disabled]="!heroForm.form.valid"(click)="updateInfo()">Guardar</button>
+                        
+                        
+                      </div>
+
+                    
+                    <!-- .tagline-->
+                   
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- begin: .tray-right-->
+        
+      </section>
+    </section>
+    </div>
+    
+  

@@ -122,6 +122,7 @@ export class EditarProductoComponent implements OnInit {
       this.producto.descuentoPromocion = this.revisarUndefined(element[0].descuentoPromocion);
       this.producto.fichaTecnica = this.revisarUndefined(element[0].clasificaciones.fichaTecnica);
       this.producto.marca = this.revisarUndefined(element[0].marca);
+      this.producto.peso = this.revisarUndefined(element[0].peso);
       // if ( element[0].fichaTecnica !== undefined) {
       //   this.producto.fichaTecnica = element[0].fichaTecnica;
       // } else {
